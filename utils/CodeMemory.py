@@ -7,15 +7,21 @@ from pathlib import Path
 import json
 import redis
 import torch
+import yaml
 from sentence_transformers import SentenceTransformer
 from code2code.utils.CodeUnit import CodeUnit
 
+# Load configuration from config.yaml
+config_path = Path(__file__).resolve().parent.parent / "config.yaml"
+with open(config_path, "r") as config_file:
+    config = yaml.safe_load(config_file)
+
 class CodeMemory:
-    def __init__(self, redis_host='127.0.0.1', redis_port=6379):
+    def __init__(self, redis_host=config['redis']['host'], redis_port=config['redis']['port']):
         # Initialize Redis client
         self.redis_client = redis.Redis(host=redis_host, port=redis_port)
         # Load the sentence transformer model for generating embeddings
-        self.embedding_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+        self.embedding_model = SentenceTransformer(config['sentence_transformer_model']['name'])
         
     def store_code_unit(self, unit: CodeUnit):
         """Store a code unit in Redis with its embeddings"""

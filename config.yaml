@@ -1,0 +1,7 @@
+model:
+  name: "mistral-nemo:12b"
+sentence_transformer_model:
+  name: "sentence-transformers/all-MiniLM-L6-v2"
+redis:
+  host: "127.0.0.1"
+  port: 6379
