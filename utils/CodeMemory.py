@@ -1,5 +1,5 @@
 """
-CodeMemory module for storing and retrieving code units in Redis
+Module for storing and retrieving code units in Redis
 """
 import logging
 from typing import Optional

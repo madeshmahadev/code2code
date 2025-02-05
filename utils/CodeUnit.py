@@ -1,5 +1,5 @@
 """
-This module contains the CodeUnit class, which represents a code unit (e.g., class, function, etc.) in a programming language.
+Module contains the CodeUnit class, which represents a code unit (e.g., class, function, etc.) in a programming language.
 """
 from typing import List
 from dataclasses import dataclass

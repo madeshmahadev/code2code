@@ -35,14 +35,14 @@ class CodeConverter:
             
         # This is a simplified parser - in practice, you'd want to use a proper
         # parser for the source language (e.g., babel for JavaScript)
-        # For now, we'll just create a single unit per file
+        # For now, I have just created a single unit per file
         return [CodeUnit(
             content=content,
             file_path=file_path,
             language=source_language,
-            unit_type='unknown',  # Would be determined by proper parsing
+            unit_type='unknown',  
             name=Path(file_path).stem,
-            dependencies=[]  # Would be determined by proper parsing
+            dependencies=[]  
         )]
     
     def convert_code(self, unit: CodeUnit, target_language: str) -> str:
@@ -81,7 +81,7 @@ class CodeConverter:
             }
         )
 
-        converted_code = response['response']  # This is the actual response text
+        converted_code = response['response'] 
         converted_code = self.process_converted_code(converted_code, unit.unit_type)
 
         logging.info(f"Completed code conversion for {unit.name}")
