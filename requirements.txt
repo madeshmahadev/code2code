@@ -1,0 +1,7 @@
+dataclasses
+transformers
+redis
+sentence-transformers
+torch
+ollama
+typer
